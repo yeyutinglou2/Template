@@ -75,6 +75,9 @@ C502002.event.lottieBgEvent = function (lottie) {
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
     let frameTitle = material.frame_title;
+    if (!isValidString(frameTitle)) {
+            frameTitle = "今日热门推荐";
+    }
     lottie.textProvider({
         "_FRAME_TITLE_":frameTitle
     });
