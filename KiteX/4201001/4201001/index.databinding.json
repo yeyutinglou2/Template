@@ -1,0 +1,32 @@
+{
+  "data": {
+    "logo_icon": {
+      "value": {
+        "src": "'${ads[0].ad_source_logo}'"
+      }
+    },
+    "logo_text": {
+      "value": "'广告'"
+    },
+    "control_right_skipview_id": {
+      "value": {
+        "title": "'跳过'",
+        "scale": 1.0,
+        "isCountDown":true
+      }
+    },
+    "interaction_text_id": {
+      "value":"'互动广告'"
+    }
+  },
+  "event":{
+    "control_right_skipview_id": {
+      "value": "javaScript",
+      "script": "main.event.skipClick",
+      "params": {
+        "nodeId": "'control_right_skipview_id'"
+      }
+    }
+  },
+  "animation":{}
+}

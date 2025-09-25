@@ -1,0 +1,134 @@
+{
+  "root_id": {
+    "width": "100%",
+    "height": "100%",
+    "backgroundColor": "transparent"
+  },
+  "frame_id": {
+    "width": "100%",
+    "height": "100%",
+    "backgroundColor": "transparent",
+    "tid": "main.event.getFrameId()"
+  },
+  "widget_id": {
+    "width": "100%",
+    "height": "100%",
+    "backgroundColor": "transparent",
+    "tid": "main.event.getWidgetId()"
+  },
+  "control_root_id": {
+    "width": "100%",
+    "height": "100%",
+    "padding": {
+      "top": "safeArea().top",
+      "bottom": "safeArea().bottom",
+      "left": 10,
+      "right": 10
+    },
+    "alignRules": {
+      "left": {
+        "anchor": "__container__",
+        "align": "HorizontalAlign.Start"
+      },
+      "top": {
+        "anchor": "__container__",
+        "align": "VerticalAlign.Top"
+      }
+    },
+    "hitTestBehavior": "HitTestMode.Transparent"
+  },
+  "control_right_row_id": {
+    "height": 30,
+    "spacing": 10,
+    "alignItems": "VerticalAlign.Center",
+    "justifyContent": "FlexAlign.Start",
+    "alignRules": {
+      "top": {
+        "anchor": "__container__",
+        "align": "VerticalAlign.Top"
+      },
+      "right": {
+        "anchor": "__container__",
+        "align": "HorizontalAlign.End"
+      }
+    }
+  },
+  "interaction_text_id": {
+    "height": 30,
+    "visibility": "'Visibility.Visible'",
+    "fontSize": 15,
+     "fontColor": "white"
+  },
+  "control_right_skipview_id": {
+    "height": 30,
+    "onlySkipTxt": false,
+    "extends": ["background_style", "background_border_style"],
+    "fontColor": "#ffffff",
+    "fontSize": 15
+  },
+  "logo_container": {
+    "height": 10,
+    "justifyContent": "FlexAlign.Start",
+    "alignItems": "VerticalAlign.Center",
+    "margin": {
+      "left": 20,
+      "bottom": "safeArea().bottom > 0 ? safeArea().bottom - 15 : 0"
+    },
+    "alignRules": {
+      "left": {
+        "anchor": "__container__",
+        "align": "HorizontalAlign.Start"
+      },
+      "bottom": {
+        "anchor": "__container__",
+        "align": "VerticalAlign.Bottom"
+      }
+    }
+  },
+  "logo_icon": {
+    "width": 10,
+    "height": 10,
+    "imageFit": "ImageFitMode.Contain"
+  },
+  "logo_text": {
+    "height": 10,
+    "fontSize": 10,
+    "fontColor": "gray"
+  },
+  "extend": {
+    "background_style": {
+      "backgroundColor": "#00000066"
+    },
+    "background_border_style": {
+      "backgroundColor": "#00000066",
+      "borderWidth": 1,
+      "borderColor": "#ffffff66"
+    },
+    "title_tool": {
+      "borderRadius": 15,
+      "fontColor": "#ffffff",
+      "fontSize": 15,
+      "padding": {
+        "top": 5,
+        "bottom": 5,
+        "left": 10,
+        "right": 10
+      }
+    },
+    "relative_default_layout": {
+      "alignRules": {
+        "left": {
+        "anchor": "__container__",
+        "align": "HorizontalAlign.Start"
+       },
+      "top": {
+        "anchor": "__container__",
+        "align": "VerticalAlign.Top"
+       }
+      },
+      "width":"100%",
+      "height":"100%"
+    }
+  }
+  
+}

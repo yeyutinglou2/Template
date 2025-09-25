@@ -1,0 +1,59 @@
+{
+  "type": "RelativeContainer",
+  "id": "root_id",
+  "styleId": "root_id",
+  "children": [
+    {
+      "type": "Template",
+      "id": "frame_id",
+      "styleId": "frame_id"
+    },
+    {
+      "type": "Template",
+      "id": "widget_id",
+      "styleId": "widget_id"
+    },
+    {
+      "type": "RelativeContainer",
+      "id": "control_root_id",
+      "styleId": "control_root_id",
+      "children": [
+        {
+          "type": "Row",
+          "id": "control_right_row_id",
+          "styleId": "control_right_row_id",
+          "children": [
+            {
+              "type": "Text",
+              "id": "interaction_text_id",
+              "styleId": "interaction_text_id"
+            },
+            {
+              "type": "SkipView",
+              "id": "control_right_skipview_id",
+              "styleId": "control_right_skipview_id"
+            }
+
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Row",
+      "id": "logo_container",
+      "styleId": "logo_container",
+      "children": [
+        {
+          "type": "Image",
+          "id": "logo_icon",
+          "styleId": "logo_icon"
+        },
+        {
+          "type": "Text",
+          "id": "logo_text",
+          "styleId": "logo_text"
+        }
+      ]
+    }
+  ]
+}

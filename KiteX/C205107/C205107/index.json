@@ -1,0 +1,12 @@
+{
+  "type": "RelativeContainer",
+  "id": "root_id",
+  "styleId": "root_id",
+  "children": [
+    {
+      "type": "LottieView",
+      "id": "widget_id",
+      "styleId": "widget_id"
+    }
+  ]
+}
