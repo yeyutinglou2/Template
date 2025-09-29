@@ -9,7 +9,7 @@ main.event.getFrameId = function() {
    let componentLibrary = material.component_library;
    let components = componentLibrary.components;
    for (const component of components) {
-       if (component.component_type == 1) {
+       if (component.frame_type == 1) {
           return component.c_id;
        }
    }
@@ -20,7 +20,7 @@ main.event.getWidgetId = function() {
    let componentLibrary = material.component_library;
    let components = componentLibrary.components;
    for (const component of components) {
-       if (component.component_type == 2) {
+       if (component.cpt_type == 1) {
            return component.c_id;
        }
    }
@@ -33,9 +33,6 @@ main.event.makeNode = function (params) {
     if (params.type == 'SkipView') {
         let ad = kitex.data.ads[0];
         let totalTime = ad.slot_ad_setting.splash_setting.show_duration;
-        if (main.vpaid && main.vpaid.duration > 3) {
-            totalTime = Math.min(main.vpaid.duration, totalTime);
-        }
         let skipTime = totalTime;
         let control = new kitex.SkipViewControl(params);
          control.setTime(totalTime, skipTime);
@@ -45,8 +42,8 @@ main.event.makeNode = function (params) {
 
 
 main.event.countDownListener = function() {
-    main.track.countdownFinish();
-    main.track.close();
+//    main.track.countdownFinish();
+//    main.track.close();
     kitex.postMessage({
         tid: main.tid,
         type: 'ad',
@@ -55,7 +52,7 @@ main.event.countDownListener = function() {
 }
 
 main.event.skipClick = function (event) {
-    main.track.clickSkip();
-    main.track.close();
+//    main.track.clickSkip();
+//    main.track.close();
     kitex.ad.skip(event);
 }

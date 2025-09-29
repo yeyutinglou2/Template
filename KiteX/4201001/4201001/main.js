@@ -29,6 +29,3 @@ kitex.addEventListener(main.tid, 'viewableChange', function (viewable) {
     console.log('[main].viewableChange: ' + JSON.stringify(viewable));
     main.event.viewableChange(viewable);
 })
-kitex.addEventListener(main.tid, 'resourceSize', function(params) {
-    main.event.resourceSize(params);
-})
