@@ -9,7 +9,7 @@ main.event.getFrameId = function() {
    let componentLibrary = material.component_library;
    let components = componentLibrary.components;
    for (const component of components) {
-       if (component.frame_type == 1) {
+       if (component.component_type == 1) {
           return component.c_id;
        }
    }
@@ -20,7 +20,7 @@ main.event.getWidgetId = function() {
    let componentLibrary = material.component_library;
    let components = componentLibrary.components;
    for (const component of components) {
-       if (component.cpt_type == 1) {
+       if (component.component_type == 2) {
            return component.c_id;
        }
    }

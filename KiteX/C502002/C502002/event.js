@@ -53,7 +53,6 @@ C502002.event.bgImagePath = function() {
 }
 C502002.event.lottieBgEvent = function (lottie) {
     let bgWidgetId = C502002.event.bgWidgetId();
-//    let containerPath = "_BG_POSTION_" + bgWidgetId + "_";
     let containerPath = "_BG_POSITION_";
     lottie.addEventListener("animationLoaded", function (event) {
         lottie.play(0, 1, 0);
@@ -74,7 +73,15 @@ C502002.event.lottieBgEvent = function (lottie) {
     // 更改标题
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
-    let frameTitle = material.frame_title;
+    let frameTitle = '';
+    let componentLibrary = material.component_library;
+    let components = componentLibrary.components;
+    for (const component of components) {
+        if (component.component_type == 1) {
+            frameTitle = component.frame_title;
+        }
+    }
+
     if (!isValidString(frameTitle)) {
             frameTitle = "今日热门推荐";
     }
