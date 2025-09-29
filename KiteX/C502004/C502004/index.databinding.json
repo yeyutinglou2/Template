@@ -1,0 +1,20 @@
+{
+  "data": {
+    "blur_image_bg_id": {
+      "value": {
+        "src": "C502004.event.bgImagePath()"
+      }
+    },
+    "blur_image_id": {
+      "value": {
+        "src":"'${ads[0].materials[0].image_src}'"
+      }
+    },
+    "image_id": {
+      "value": {
+        "src": "'${ads[0].materials[0].image_src}'"
+      }
+    }
+  },
+  "animation":{}
+}
