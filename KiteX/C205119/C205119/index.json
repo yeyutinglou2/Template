@@ -1,0 +1,17 @@
+{
+  "type": "RelativeContainer",
+  "id": "root_id",
+  "styleId": "root_id",
+  "children": [
+    {
+      "type": "Image",
+      "id": "gif_id",
+      "styleId": "gif_id"
+    },
+    {
+      "type": "LottieView",
+      "id": "widget_id",
+      "styleId": "widget_id"
+    }
+  ]
+}
