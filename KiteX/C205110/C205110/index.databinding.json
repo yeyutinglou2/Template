@@ -1,0 +1,15 @@
+{
+  "data": {
+  },
+  "event":{
+    "widget_id": {
+      "type": "slide",
+      "value": "javaScript",
+      "script": "C205110.event.click",
+      "params":{
+        "distanceValue": "C205110.event.distance()"
+      }
+    }
+  },
+  "animation":{}
+}
