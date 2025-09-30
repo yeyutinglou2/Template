@@ -1,0 +1,12 @@
+{
+  "data": {
+    "widget_icon_id": {
+      "value": {
+        "src":"'${ads[0].materials[0].icon_url}'"
+      }
+    }
+  },
+  "event":{
+  },
+  "animation":{}
+}
