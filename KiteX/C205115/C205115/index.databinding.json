@@ -1,0 +1,21 @@
+{
+  "data": {
+    "time_id": {
+        "value": {
+          "scale": 1.0,
+          "isCountDown":true
+        }
+    }
+  },
+  "event":{
+     "widget_id": {
+      "type": "slide",
+      "value": "javaScript",
+      "script": "C205115.event.click",
+      "params":{
+        "distanceValue": "C205115.event.distance()"
+      }
+    }
+  },
+  "animation":{}
+}
