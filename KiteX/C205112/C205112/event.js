@@ -66,6 +66,7 @@ C205112.event.lottieWidgetEvent = function (lottie) {
     }
     let tipLeft ='';
     let tipRight = '';
+    let componentLibrary = material.component_library;
     let components = componentLibrary.components;
     for (const component of components) {
         if (component.component_type == 2) {
@@ -88,6 +89,7 @@ C205112.event.lottieWidgetEvent = function (lottie) {
         "_AD_TITLE_": creativeTitle,
         "_AD_DESC_": creativeDesc,
         "_INT_TEXT_": title + desc,
+        "_TIME_": ""
     });
 }
 /** 互动事件处理 */

@@ -13,9 +13,10 @@
       "extends":[
         "relative_default_layout"
       ],
-      "fontSize": 15,
+      "fontSize": 26,
       "fontColor": "#ff2700",
-      "fontWeight": "FontWeight.Heavy"
+      "fontWeight": "FontWeight.Medium",
+      "textAlign": "TextAlign.Center"
   },
   "extend": {
     "background_style": {
