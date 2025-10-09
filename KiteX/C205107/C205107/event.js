@@ -74,7 +74,7 @@ C205107.event.interactiveEvent = function (lottie) {
         clickAreas.forEach((val, index) => {
             lottie.addClick(val, function (params) {
                 console.log('[C205107].widget.click: ' + JSON.stringify(params));
-                kitex.ad.openByVid(params);
+                C205107.event.click(params, true);
             });
         });
     }
@@ -94,9 +94,16 @@ C205107.event.motionEvent = function (motion) {
     });
     motion.addEventListener("end", function (params) {
         console.log('[C205107].motion.end: ' + JSON.stringify(params));
+        C205107.event.click(params, false);
     });
     motion.addEventListener("progress", function (params) {
         console.log('[C205107].motion.progress: ' + JSON.stringify(params));
     });
+}
+
+C205107.event.click = function(params, isClick) {
+    params.set("sld",C205107.sld);
+    params.set('click_area', isClick ? C205107.clickArea : C205107.widgetArea);
+    kitex.ad.openByVid(params);
 }
 
