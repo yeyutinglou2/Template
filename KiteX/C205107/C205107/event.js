@@ -79,6 +79,7 @@ C205107.event.interactiveEvent = function (lottie) {
                 params.dcParams.up_point = '{' + params.touchEvent.upX + ',' + params.touchEvent.upY + '}';
                 params.dcParams.up_timestamp = params.touchEvent.upTimestamp;
                 params.dcParams.down_timestamp = params.touchEvent.downTimestamp;
+                params.dcParams.cpt_id = C205107.widgetId;
                 console.log('[C205107].widget.click: ' + JSON.stringify(params));
                 kitex.ad.openByVid(params);
             });
@@ -101,6 +102,7 @@ C205107.event.motionEvent = function (motion) {
     motion.addEventListener("end", function (params) {
         params.sld = C205107.sld;
         params.click_area = 'component';
+        params.cpt_id = C205107.widgetId;
         console.log('[C205107].motion.end: ' + JSON.stringify(params));
         kitex.ad.open({
             tid: C205107.tid,
