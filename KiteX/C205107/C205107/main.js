@@ -6,8 +6,6 @@ var C205107 = {
     lottie_widget: undefined,
     motion: undefined,
     widgetId: '205107',
-    widgetArea: 'component',
-    clickArea: 'companion',
     sld: '2'
 }
 // 监听事件 模版环境初始化完成
