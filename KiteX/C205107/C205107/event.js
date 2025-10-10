@@ -1,6 +1,6 @@
 C205107.event.ready = function () {
     console.log('[C205107].ready');
-//    console.log('[C205107].ad: ' + JSON.stringify(kitex.data));
+    //    console.log('[C205107].ad: ' + JSON.stringify(kitex.data));
     C205107.event.lottieWidgetEvent(C205107.lottie_widget);
 }
 C205107.event.viewableChange = function (viewable) {
@@ -73,8 +73,14 @@ C205107.event.interactiveEvent = function (lottie) {
         ];
         clickAreas.forEach((val, index) => {
             lottie.addClick(val, function (params) {
+                params.dcParams.sld = C205107.sld;
+                params.dcParams.click_area = C205107.clickArea;
+                params.dcParams.down_point = '{' + params.touchEvent.downX + ',' + params.touchEvent.downY + '}';
+                params.dcParams.up_point = '{' + params.touchEvent.upX + ',' + params.touchEvent.upY + '}';
+                params.dcParams.up_timestamp = params.touchEvent.upTimestamp;
+                params.dcParams.down_timestamp = params.touchEvent.downTimestamp;
                 console.log('[C205107].widget.click: ' + JSON.stringify(params));
-                C205107.event.click(params, true);
+                kitex.ad.openByVid(params);
             });
         });
     }
@@ -93,17 +99,19 @@ C205107.event.motionEvent = function (motion) {
         console.log('[C205107].motion.start: ' + JSON.stringify(params));
     });
     motion.addEventListener("end", function (params) {
+        params.sld = C205107.sld;
+        params.click_area = C205107.widgetArea;
         console.log('[C205107].motion.end: ' + JSON.stringify(params));
-        C205107.event.click(params, false);
+        kitex.postMessage({
+            tid: C205107.tid,
+            value: 'open',
+            dcParams: params
+        });
     });
+
     motion.addEventListener("progress", function (params) {
         console.log('[C205107].motion.progress: ' + JSON.stringify(params));
     });
 }
 
-C205107.event.click = function(params, isClick) {
-    params.set("sld",C205107.sld);
-    params.set('click_area', isClick ? C205107.clickArea : C205107.widgetArea);
-    kitex.ad.openByVid(params);
-}
 
