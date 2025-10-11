@@ -1,6 +1,6 @@
 C205110.event.ready = function () {
     console.log('[C205110].ready');
-//    console.log('[C205110].ad: ' + JSON.stringify(kitex.data));
+    //    console.log('[C205110].ad: ' + JSON.stringify(kitex.data));
     C205110.event.lottieWidgetEvent(C205110.lottie_widget);
 }
 C205110.event.viewableChange = function (viewable) {
@@ -68,6 +68,14 @@ C205110.event.interactiveEvent = function (lottie) {
         ];
         clickAreas.forEach((val, index) => {
             lottie.addClick(val, function (params) {
+                params.dcParams.sld = '0';
+                params.dcParams.click_area = 'companion';
+                params.dcParams.down_point = '{' + params.touchEvent.downX + ',' + params.touchEvent.downY + '}';
+                params.dcParams.up_point = '{' + params.touchEvent.upX + ',' + params.touchEvent.upY + '}';
+                params.dcParams.up_timestamp = params.touchEvent.upTimestamp;
+                params.dcParams.down_timestamp = params.touchEvent.downTimestamp;
+                params.dcParams.cpt_id = C205110.widgetId;
+                params.dcParams.accpt_ids = C205110.widgetId;
                 console.log('[C205110].widget.click: ' + JSON.stringify(params));
                 kitex.ad.openByVid(params);
             });
@@ -82,8 +90,8 @@ function isValidString(val) {
     return true
 }
 
-C205110.event.distance = function() {
-//     console.log('[main].distance:' + JSON.stringify(kitex.data));
+C205110.event.distance = function () {
+    //     console.log('[main].distance:' + JSON.stringify(kitex.data));
     let ad = kitex.data.ads[0];
     let adSetting = ad.ad_setting;
     let sensitivity = adSetting.sensitivity;
@@ -91,7 +99,7 @@ C205110.event.distance = function() {
     return distance;
 }
 
-C205110.event.getSlideDistance = function(sensitivity) {
+C205110.event.getSlideDistance = function (sensitivity) {
     const arr = [
         100,
         90,
@@ -113,5 +121,13 @@ C205110.event.getSlideDistance = function(sensitivity) {
 }
 
 C205110.event.click = function (params) {
-     kitex.ad.openByVid(params);
+    params.sld = C205110.sld;
+    params.click_area = 'component';
+    params.cpt_id = C205110.widgetId;
+    params.accpt_ids = C205110.widgetId;
+    console.log('[C205110].slide.click: ' + JSON.stringify(params));
+    kitex.ad.open({
+        tid: C205110.tid,
+        dcParams: params
+    });
 }
