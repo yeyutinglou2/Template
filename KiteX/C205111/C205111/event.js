@@ -1,6 +1,6 @@
 C205111.event.ready = function () {
     console.log('[C205111].ready');
-//    console.log('[C205111].ad: ' + JSON.stringify(kitex.data));
+    //    console.log('[C205111].ad: ' + JSON.stringify(kitex.data));
     C205111.event.lottieWidgetEvent(C205111.lottie_widget);
 }
 C205111.event.viewableChange = function (viewable) {
@@ -70,6 +70,14 @@ C205111.event.interactiveEvent = function (lottie) {
         ];
         clickAreas.forEach((val, index) => {
             lottie.addClick(val, function (params) {
+                params.dcParams.sld = '0';
+                params.dcParams.click_area = 'companion';
+                params.dcParams.down_point = '{' + params.touchEvent.downX + ',' + params.touchEvent.downY + '}';
+                params.dcParams.up_point = '{' + params.touchEvent.upX + ',' + params.touchEvent.upY + '}';
+                params.dcParams.up_timestamp = params.touchEvent.upTimestamp;
+                params.dcParams.down_timestamp = params.touchEvent.downTimestamp;
+                params.dcParams.cpt_id = C205111.widgetId;
+                params.dcParams.accpt_ids = C205111.widgetId;
                 console.log('[C205111].widget.click: ' + JSON.stringify(params));
                 kitex.ad.openByVid(params);
             });
@@ -90,7 +98,15 @@ C205111.event.motionEvent = function (motion) {
         console.log('[C205111].motion.start: ' + JSON.stringify(params));
     });
     motion.addEventListener("end", function (params) {
+        params.sld = C205111.sld;
+        params.click_area = 'component';
+        params.cpt_id = C205111.widgetId;
+        params.accpt_ids = C205111.widgetId;
         console.log('[C205111].motion.end: ' + JSON.stringify(params));
+        kitex.ad.open({
+            tid: C205111.tid,
+            dcParams: params
+        });
     });
     motion.addEventListener("progress", function (params) {
         console.log('[C205111].motion.progress: ' + JSON.stringify(params));
