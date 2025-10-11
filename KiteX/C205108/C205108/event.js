@@ -105,6 +105,9 @@ C205108.event.motionEvent = function (motion) {
         params.click_area = 'component';
         params.cpt_id = C205108.widgetId;
         params.accpt_ids = C205108.widgetId;
+        delete params.x_max_acc;
+        delete params.y_max_acc;
+        delete params.z_max_acc;
         console.log('[C205108].motion.end: ' + JSON.stringify(params));
         kitex.ad.open({
             tid: C205108.tid,
