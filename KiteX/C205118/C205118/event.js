@@ -52,6 +52,14 @@ C205118.event.interactiveEvent = function (lottie) {
      ];
     clickAreas.forEach((val, index) => {
         lottie.addClick(val, function (params) {
+            params.dcParams.sld = '0';
+            params.dcParams.click_area = 'companion';
+            params.dcParams.down_point = '{' + params.touchEvent.downX + ',' + params.touchEvent.downY + '}';
+            params.dcParams.up_point = '{' + params.touchEvent.upX + ',' + params.touchEvent.upY + '}';
+            params.dcParams.up_timestamp = params.touchEvent.upTimestamp;
+            params.dcParams.down_timestamp = params.touchEvent.downTimestamp;
+            params.dcParams.cpt_id = C205118.widgetId;
+            params.dcParams.accpt_ids = C205118.widgetId;
             console.log('[C205118].widget.click: ' + JSON.stringify(params));
             kitex.ad.openByVid(params);
         });
