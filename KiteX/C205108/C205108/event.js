@@ -61,7 +61,7 @@ C205108.event.interactiveEvent = function (lottie) {
     let adSetting = ad.ad_setting;
     let widgetId = C205108.event.widgetId();
     let sensitivity = adSetting.sensitivity;
-    C205108.motion = new kitex.Motion(1);
+    C205108.motion = new kitex.Motion(3);
     C205108.event.motionEvent(C205108.motion);
     // 互动组件点击
     if (material.click_type == 1) {
@@ -105,9 +105,6 @@ C205108.event.motionEvent = function (motion) {
         params.click_area = 'component';
         params.cpt_id = C205108.widgetId;
         params.accpt_ids = C205108.widgetId;
-        delete params.x_max_acc;
-        delete params.y_max_acc;
-        delete params.z_max_acc;
         console.log('[C205108].motion.end: ' + JSON.stringify(params));
         kitex.ad.open({
             tid: C205108.tid,
