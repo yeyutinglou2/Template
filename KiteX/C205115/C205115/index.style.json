@@ -13,7 +13,7 @@
       "extends":[
         "relative_default_layout"
       ],
-      "fontSize": 26,
+      "fontSize": 20,
       "fontColor": "#ff2700",
       "fontWeight": "FontWeight.Medium",
       "textAlign": "TextAlign.Center"
