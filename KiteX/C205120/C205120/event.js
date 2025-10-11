@@ -1,10 +1,10 @@
 C205120.event.ready = function () {
     console.log('[C205120].ready');
-//    console.log('[C205120].ad: ' + JSON.stringify(kitex.data));
+    //    console.log('[C205120].ad: ' + JSON.stringify(kitex.data));
     C205120.event.lottieWidgetEvent(C205120.lottie_widget);
 }
 C205120.event.viewableChange = function (viewable) {
-   
+
 }
 C205120.event.makeNode = function (params) {
     if (params.type == 'LottieView') {
@@ -34,7 +34,7 @@ C205120.event.lottieWidgetEvent = function (lottie) {
     let material = ad.materials[0];
     let buttonText = material.button_text;
     lottie.textProvider({
-        "_CTA_TEXT_":buttonText.length ? buttonText : "点击查看详情"
+        "_CTA_TEXT_": buttonText.length ? buttonText : "点击查看详情"
     });
     let buttonColor = material.button_color;
     lottie.colorProvider("_CTA_BG_.矩形 1.填充 1.Color", buttonColor);
@@ -44,12 +44,20 @@ C205120.event.interactiveEvent = function (lottie) {
     // 互动挂件
     //    console.log('[C205120].ad: ' + JSON.stringify(kitex.data));
     let clickAreas = [
-            "_CLICK_",
-            "_CLICK_01_",
-            "_CLICK_02_",
-     ];
+        "_CLICK_",
+        "_CLICK_01_",
+        "_CLICK_02_",
+    ];
     clickAreas.forEach((val, index) => {
         lottie.addClick(val, function (params) {
+            params.dcParams.sld = '0';
+            params.dcParams.click_area = 'companion';
+            params.dcParams.down_point = '{' + params.touchEvent.downX + ',' + params.touchEvent.downY + '}';
+            params.dcParams.up_point = '{' + params.touchEvent.upX + ',' + params.touchEvent.upY + '}';
+            params.dcParams.up_timestamp = params.touchEvent.upTimestamp;
+            params.dcParams.down_timestamp = params.touchEvent.downTimestamp;
+            params.dcParams.cpt_id = C205120.widgetId;
+            params.dcParams.accpt_ids = C205120.widgetId;
             console.log('[C205120].widget.click: ' + JSON.stringify(params));
             kitex.ad.openByVid(params);
         });
@@ -63,8 +71,8 @@ function isValidString(val) {
     return true
 }
 
-C205120.event.distance = function() {
-//     console.log('[main].distance:' + JSON.stringify(kitex.data));
+C205120.event.distance = function () {
+    //     console.log('[main].distance:' + JSON.stringify(kitex.data));
     let ad = kitex.data.ads[0];
     let adSetting = ad.ad_setting;
     let sensitivity = adSetting.sensitivity;
@@ -72,7 +80,7 @@ C205120.event.distance = function() {
     return distance;
 }
 
-C205120.event.getSlideDistance = function(sensitivity) {
+C205120.event.getSlideDistance = function (sensitivity) {
     const arr = [
         100,
         90,
@@ -94,7 +102,15 @@ C205120.event.getSlideDistance = function(sensitivity) {
 }
 
 C205120.event.click = function (params) {
-     kitex.ad.openByVid(params);
+    params.sld = C205120.sld;
+    params.click_area = 'component';
+    params.cpt_id = C205120.widgetId;
+    params.accpt_ids = C205120.widgetId;
+    console.log('[C205120].slide.click: ' + JSON.stringify(params));
+    kitex.ad.open({
+        tid: C205120.tid,
+        dcParams: params
+    });
 }
 
 
