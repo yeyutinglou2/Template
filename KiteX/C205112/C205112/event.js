@@ -98,9 +98,6 @@ C205112.event.interactiveEvent = function (lottie) {
     //    console.log('[C205112].ad: ' + JSON.stringify(kitex.data));
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
-    let adSetting = ad.ad_setting;
-    let widgetId = C205112.event.widgetId();
-    let sensitivity = adSetting.sensitivity;
     C205112.motion = new kitex.Motion(0);
     C205112.event.motionEvent(C205112.motion);
     // 互动组件点击
@@ -113,6 +110,14 @@ C205112.event.interactiveEvent = function (lottie) {
         ];
         clickAreas.forEach((val, index) => {
             lottie.addClick(val, function (params) {
+                params.dcParams.sld = '0';
+                params.dcParams.click_area = 'companion';
+                params.dcParams.down_point = '{' + params.touchEvent.downX + ',' + params.touchEvent.downY + '}';
+                params.dcParams.up_point = '{' + params.touchEvent.upX + ',' + params.touchEvent.upY + '}';
+                params.dcParams.up_timestamp = params.touchEvent.upTimestamp;
+                params.dcParams.down_timestamp = params.touchEvent.downTimestamp;
+                params.dcParams.cpt_id = C205112.widgetId;
+                params.dcParams.accpt_ids = C205112.widgetId;
                 console.log('[C205112].widget.click: ' + JSON.stringify(params));
                 kitex.ad.openByVid(params);
             });
@@ -133,7 +138,15 @@ C205112.event.motionEvent = function (motion) {
         console.log('[C205112].motion.start: ' + JSON.stringify(params));
     });
     motion.addEventListener("end", function (params) {
+        params.sld = C205112.sld;
+        params.click_area = 'component';
+        params.cpt_id = C205112.widgetId;
+        params.accpt_ids = C205112.widgetId;
         console.log('[C205112].motion.end: ' + JSON.stringify(params));
+        kitex.ad.open({
+            tid: C205112.tid,
+            dcParams: params
+        });
     });
     motion.addEventListener("progress", function (params) {
         console.log('[C205112].motion.progress: ' + JSON.stringify(params));
