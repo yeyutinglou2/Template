@@ -5,7 +5,8 @@ var C205109 = {
     event: {},
     lottie_widget: undefined,
     motion: undefined,
-    widgetId: '205109'
+    widgetId: '205109',
+    sld: '5'
 }
 // 监听事件 模版环境初始化完成
 kitex.addEventListener(C205109.tid, 'ready', function () {

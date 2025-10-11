@@ -1,6 +1,6 @@
 C205109.event.ready = function () {
     console.log('[C205109].ready');
-//    console.log('[C205109].ad: ' + JSON.stringify(kitex.data));
+    //    console.log('[C205109].ad: ' + JSON.stringify(kitex.data));
     C205109.event.lottieWidgetEvent(C205109.lottie_widget);
 }
 C205109.event.viewableChange = function (viewable) {
@@ -58,10 +58,7 @@ C205109.event.interactiveEvent = function (lottie) {
     //    console.log('[C205109].ad: ' + JSON.stringify(kitex.data));
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
-    let adSetting = ad.ad_setting;
-    let widgetId = C205109.event.widgetId();
-    let sensitivity = adSetting.sensitivity;
-    C205109.motion = new kitex.Motion(3);
+    C205109.motion = new kitex.Motion(1);
     C205109.event.motionEvent(C205109.motion);
     // 互动组件点击
     if (material.click_type == 1) {
@@ -73,6 +70,14 @@ C205109.event.interactiveEvent = function (lottie) {
         ];
         clickAreas.forEach((val, index) => {
             lottie.addClick(val, function (params) {
+                params.dcParams.sld = '0';
+                params.dcParams.click_area = 'companion';
+                params.dcParams.down_point = '{' + params.touchEvent.downX + ',' + params.touchEvent.downY + '}';
+                params.dcParams.up_point = '{' + params.touchEvent.upX + ',' + params.touchEvent.upY + '}';
+                params.dcParams.up_timestamp = params.touchEvent.upTimestamp;
+                params.dcParams.down_timestamp = params.touchEvent.downTimestamp;
+                params.dcParams.cpt_id = C205109.widgetId;
+                params.dcParams.accpt_ids = C205109.widgetId;
                 console.log('[C205109].widget.click: ' + JSON.stringify(params));
                 kitex.ad.openByVid(params);
             });
@@ -93,7 +98,15 @@ C205109.event.motionEvent = function (motion) {
         console.log('[C205109].motion.start: ' + JSON.stringify(params));
     });
     motion.addEventListener("end", function (params) {
+        params.sld = C205109.sld;
+        params.click_area = 'component';
+        params.cpt_id = C205109.widgetId;
+        params.accpt_ids = C205109.widgetId;
         console.log('[C205109].motion.end: ' + JSON.stringify(params));
+        kitex.ad.open({
+            tid: C205109.tid,
+            dcParams: params
+        });
     });
     motion.addEventListener("progress", function (params) {
         console.log('[C205109].motion.progress: ' + JSON.stringify(params));
