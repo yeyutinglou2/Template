@@ -20,7 +20,7 @@
       "relative_default_layout"
     ],
     "blur": 10,
-    "contentMode":"ImageFit.Fill"
+    "contentMode":"ImageFit.Cover"
   },
   "image_id": {
    "extends":[

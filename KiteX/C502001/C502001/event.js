@@ -38,8 +38,8 @@ C502001.event.addVpaidEvent = function (vpaid) {
         console.log('[C502001].prepareToPlay:' + JSON.stringify(params));
         C502001.event.vpaidReadyToPlay(vpaid);
         kitex.postMessage({
-            tid: vpaid.tid,
-            type: vpaid.type,
+            tid: C502001.tid,
+            type: 'vpaidCallback',
             value: 'prepareToPlay',
             params: params
         });
@@ -47,8 +47,8 @@ C502001.event.addVpaidEvent = function (vpaid) {
     vpaid.addEventListener('playStateChanged', function (params) {
         console.log('[C502001].playStateChanged:' + JSON.stringify(params));
         kitex.postMessage({
-            tid: vpaid.tid,
-            type: vpaid.type,
+            tid: C502001.tid,
+            type: 'vpaidCallback',
             value: 'playStateChanged',
             params: params
         });
@@ -56,16 +56,16 @@ C502001.event.addVpaidEvent = function (vpaid) {
     vpaid.addEventListener('loadStateChanged', function (params) {
         console.log('[C502001].loadStateChanged:' + JSON.stringify(params));
         kitex.postMessage({
-            tid: vpaid.tid,
-            type: vpaid.type,
+            tid: C502001.tid,
+            type: 'vpaidCallback',
             value: 'loadStateChanged',
             params: params
         });
     });
     vpaid.addEventListener('currentTime', function (params) {
         kitex.postMessage({
-            tid: vpaid.tid,
-            type: vpaid.type,
+            tid: C502001.tid,
+            type: 'vpaidCallback',
             value: 'currentTime',
             params: params
         });
@@ -73,8 +73,8 @@ C502001.event.addVpaidEvent = function (vpaid) {
     vpaid.addEventListener('playEnd', function (params) {
         console.log('[C502001].playEnd:' + JSON.stringify(params));
         kitex.postMessage({
-            tid: vpaid.tid,
-            type: vpaid.type,
+            tid: C502001.tid,
+            type: 'vpaidCallback',
             value: 'playEnd',
             params: params
         });
@@ -82,8 +82,8 @@ C502001.event.addVpaidEvent = function (vpaid) {
     vpaid.addEventListener('error', function (params) {
         console.log('[C502001].error:' + JSON.stringify(params));
         kitex.postMessage({
-            tid: vpaid.tid,
-            type: vpaid.type,
+            tid: C502001.tid,
+            type: 'vpaidCallback',
             value: 'error',
             params: params
         });
