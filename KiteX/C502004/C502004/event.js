@@ -109,37 +109,62 @@ C502004.event.vpaidInit = function (params) {
 C502004.event.vpaidReadyToPlay = function (vpaid) {
     vpaid.play();
 }
-C502004.event.vpaidPlayToEnd = function (vpaid) {
-    kitex.postMessage({
-        tid: vpaid.tid,
-        type: vpaid.type,
-        value: 'vpaidPlayToEnd',
-        params: {
-            nodeId: vpaid.nodeId
-        }
-    });
-}
 C502004.event.addVpaidEvent = function (vpaid) {
     vpaid.addEventListener('ready', function (params) {
         console.log('[C502004].prepareToPlay:' + JSON.stringify(params));
         C502004.event.vpaidReadyToPlay(vpaid);
-        // C502004.event.loadBg(params);
+        kitex.postMessage({
+            tid: C502004.tid,
+            type: 'vpaidCallback',
+            value: 'prepareToPlay',
+            params: params
+        });
     });
     vpaid.addEventListener('playStateChanged', function (params) {
         console.log('[C502004].playStateChanged:' + JSON.stringify(params));
+        kitex.postMessage({
+            tid: C502004.tid,
+            type: 'vpaidCallback',
+            value: 'playStateChanged',
+            params: params
+        });
     });
     vpaid.addEventListener('loadStateChanged', function (params) {
         console.log('[C502004].loadStateChanged:' + JSON.stringify(params));
+        kitex.postMessage({
+            tid: C502004.tid,
+            type: 'vpaidCallback',
+            value: 'loadStateChanged',
+            params: params
+        });
     });
     vpaid.addEventListener('currentTime', function (params) {
-        
+        kitex.postMessage({
+            tid: C502004.tid,
+            type: 'vpaidCallback',
+            value: 'currentTime',
+            params: params
+        });
     });
     vpaid.addEventListener('playEnd', function (params) {
         console.log('[C502004].playEnd:' + JSON.stringify(params));
-        C502004.event.vpaidPlayToEnd(params);
+        kitex.postMessage({
+            tid: C502004.tid,
+            type: 'vpaidCallback',
+            value: 'playEnd',
+            params: params
+        });
     });
     vpaid.addEventListener('error', function (params) {
         console.log('[C502004].error:' + JSON.stringify(params));
+        kitex.postMessage({
+            tid: C502004.tid,
+            type: 'vpaidCallback',
+            value: 'error',
+            params: params
+        });
     });
 }
+
+
 
