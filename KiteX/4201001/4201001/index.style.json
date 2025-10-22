@@ -71,17 +71,17 @@
     "justifyContent": "FlexAlign.Start",
     "alignItems": "VerticalAlign.Center",
     "margin": {
-      "left": 20,
-      "bottom": "safeArea().bottom > 0 ? safeArea().bottom - 15 : 0"
+      "top": "safeArea().top + 10",
+      "left": 20
     },
     "alignRules": {
       "left": {
         "anchor": "__container__",
         "align": "HorizontalAlign.Start"
       },
-      "bottom": {
+      "top": {
         "anchor": "__container__",
-        "align": "VerticalAlign.Bottom"
+        "align": "VerticalAlign.Top"
       }
     }
   },
@@ -93,7 +93,7 @@
   "logo_text": {
     "height": 10,
     "fontSize": 10,
-    "fontColor": "gray"
+    "fontColor": "white"
   },
   "extend": {
     "background_style": {

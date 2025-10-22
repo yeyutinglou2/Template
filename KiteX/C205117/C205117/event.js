@@ -52,6 +52,13 @@ C205117.event.interactiveEvent = function (lottie) {
         "_CLICK_01_",
         "_CLICK_02_",
     ];
+    let data = kitex.data;
+    let noncomplianceMark = data.noncompliance_mark;
+    if (!noncomplianceMark) {
+        clickAreas = [
+            "_CLICK_01_"
+        ];
+    }
     clickAreas.forEach((val, index) => {
         lottie.addClick(val, function (params) {
             params.dcParams.sld = '0';

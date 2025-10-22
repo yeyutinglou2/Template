@@ -1,10 +1,10 @@
 C205118.event.ready = function () {
     console.log('[C205118].ready');
-//    console.log('[C205118].ad: ' + JSON.stringify(kitex.data));
+    //    console.log('[C205118].ad: ' + JSON.stringify(kitex.data));
     C205118.event.lottieWidgetEvent(C205118.lottie_widget);
 }
 C205118.event.viewableChange = function (viewable) {
-   
+
 }
 C205118.event.makeNode = function (params) {
     if (params.type == 'LottieView') {
@@ -36,7 +36,7 @@ C205118.event.lottieWidgetEvent = function (lottie) {
     let buttonText = material.button_text;
     lottie.textProvider({
         "_AD_TITLE_": creativeTitle,
-        "_CTA_TEXT_":buttonText.length ? buttonText : "点击查看详情"
+        "_CTA_TEXT_": buttonText.length ? buttonText : "点击查看详情"
     });
     let buttonColor = material.button_color;
     lottie.colorProvider("_CTA_BG_.矩形 1.填充 1.Color", buttonColor);
@@ -44,12 +44,19 @@ C205118.event.lottieWidgetEvent = function (lottie) {
 /** 互动事件处理 */
 C205118.event.interactiveEvent = function (lottie) {
     // 互动挂件
-    //    console.log('[C205118].ad: ' + JSON.stringify(kitex.data));
+    // console.log('[C205118].ad: ' + JSON.stringify(kitex.data));
     let clickAreas = [
-            "_CLICK_",
-            "_CLICK_01_",
-            "_CLICK_02_",
-     ];
+        "_CLICK_",
+        "_CLICK_01_",
+        "_CLICK_02_",
+    ];
+    let data = kitex.data;
+    let noncomplianceMark = data.noncompliance_mark;
+    if (!noncomplianceMark) {
+        clickAreas = [
+            "_CLICK_01_"
+        ];
+    }
     clickAreas.forEach((val, index) => {
         lottie.addClick(val, function (params) {
             params.dcParams.sld = '0';
