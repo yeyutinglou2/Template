@@ -16,7 +16,8 @@
       "fontSize": 20,
       "fontColor": "#ff2700",
       "fontWeight": "FontWeight.Medium",
-      "textAlign": "TextAlign.Center"
+      "textAlign": "TextAlign.Center",
+      "visibility": "'Visibility.Hidden'"
   },
   "extend": {
     "background_style": {
