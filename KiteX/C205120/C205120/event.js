@@ -37,7 +37,7 @@ C205120.event.lottieWidgetEvent = function (lottie) {
         "_CTA_TEXT_": buttonText.length ? buttonText : "点击查看详情"
     });
     let buttonColor = material.button_color;
-    lottie.colorProvider("_CTA_BG_.矩形 1.填充 1.Color", buttonColor);
+    lottie.colorProvider("点击动效._CTA_BG_.矩形 1.填充 1.Color", buttonColor);
 }
 /** 互动事件处理 */
 C205120.event.interactiveEvent = function (lottie) {
