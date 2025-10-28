@@ -84,7 +84,7 @@
         "align": "VerticalAlign.Top"
       }
     },
-    "visibility": "${ads[0].slot_ad_setting.splash_setting.invisible_ad_lable} == 1 ? 'Visibility.Visible' : 'Visibility.None'"
+    "visibility": "${ads[0].slot_ad_setting.splash_setting.invisible_ad_label} == 1 ? 'Visibility.Visible' : 'Visibility.None'"
   },
   "logo_icon": {
     "width": 10,
