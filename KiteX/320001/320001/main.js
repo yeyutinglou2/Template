@@ -1,9 +1,7 @@
-required('4201001/event.js')
-required('4201001/track.js')
-required('4201001/utils.js')
+required('320001/event.js')
 
 var main = {
-    tid: '4201001',
+    tid: '320001',
     event: {},
     track: {},
     utils: {},
