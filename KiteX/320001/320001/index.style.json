@@ -38,7 +38,7 @@
     "hitTestBehavior": "HitTestMode.Transparent"
   },
   "control_right_row_id": {
-    "height": 30,
+    "height": 28,
     "spacing": 10,
     "alignItems": "VerticalAlign.Center",
     "justifyContent": "FlexAlign.Start",
@@ -54,24 +54,24 @@
     }
   },
   "interaction_text_id": {
-    "height": 30,
+    "height": 28,
     "visibility": "'Visibility.Visible'",
-    "fontSize": 15,
-     "fontColor": "white"
+    "fontSize": 13,
+    "fontColor": "white"
   },
   "control_right_skipview_id": {
-    "height": 30,
+    "height": 28,
     "onlySkipTxt": false,
     "extends": ["background_style", "background_border_style"],
     "fontColor": "#ffffff",
-    "fontSize": 15
+    "fontSize": 12
   },
   "logo_container": {
     "height": 10,
     "justifyContent": "FlexAlign.Start",
     "alignItems": "VerticalAlign.Center",
     "margin": {
-      "top": "safeArea().top + 10",
+      "top": "safeArea().top + 9",
       "left": 20
     },
     "alignRules": {
