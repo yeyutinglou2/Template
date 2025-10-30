@@ -68,6 +68,7 @@
   },
   "logo_container": {
     "height": 10,
+    "spacing": 2,
     "justifyContent": "FlexAlign.Start",
     "alignItems": "VerticalAlign.Center",
     "margin": {
