@@ -48,7 +48,7 @@ C502003.event.cardWidgetId = function() {
 
 C502003.event.bgImagePath = function() {
     let bgWidgetId = C502003.event.bgWidgetId();
-    let imagePath = kitex.path + "/" + bgWidgetId + "/BG-V/images/_BG_.png";
+    let imagePath = kitex.path + "/" + bgWidgetId + "/bg/" + bgWidgetId + ".jpg" ;
     return imagePath;
 }
 C502003.event.lottieBgEvent = function (lottie) {
@@ -64,7 +64,7 @@ C502003.event.lottieBgEvent = function (lottie) {
     lottie.addEventListener("completed", function (event) {
         console.log("lottieBg.animation.completed");
     });
-    let resourceName = C502003.setting.resourceDirection == 0 ? "BG-V" : "BG-H";
+    let resourceName = C502003.setting.resourceDirection == 0 ? "frame_v" : "frame_h";
     let imageProviderPath = kitex.path + "/" + bgWidgetId + "/" + resourceName + "/images/";
     let filepath = kitex.path + "/" + bgWidgetId + "/" + resourceName + "/"+ bgWidgetId + ".json";
 
