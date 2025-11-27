@@ -32,7 +32,6 @@
    "extends":[
       "relative_default_layout"
     ],
-    "blur": 10,
     "contentMode":"ImageFit.Cover"
   },
   "lottie_bg_id": {
