@@ -38,6 +38,9 @@ C205121.event.lottieWidgetEvent = function (lottie) {
     });
     let buttonColor = material.button_color;
     lottie.colorProvider("_CTA_BG_.矩形 1.填充 1.Color", buttonColor);
+    lottie.fontWeightProvider({
+        "_CTA_TEXT_": 600
+    });
 }
 /** 互动事件处理 */
 C205121.event.interactiveEvent = function (lottie) {
