@@ -1,6 +1,6 @@
 C205112.event.ready = function () {
     console.log('[C205112].ready');
-//    console.log('[C205112].ad: ' + JSON.stringify(kitex.data));
+    //    console.log('[C205112].ad: ' + JSON.stringify(kitex.data));
     C205112.event.lottieWidgetEvent(C205112.lottie_widget);
 }
 C205112.event.viewableChange = function (viewable) {
@@ -64,7 +64,7 @@ C205112.event.lottieWidgetEvent = function (lottie) {
     if (!isValidString(creativeDesc)) {
         creativeDesc = "超级福利火热领取中";
     }
-    let tipLeft ='';
+    let tipLeft = '';
     let tipRight = '';
     let componentLibrary = material.component_library;
     let components = componentLibrary.components;
@@ -90,6 +90,11 @@ C205112.event.lottieWidgetEvent = function (lottie) {
         "_AD_DESC_": creativeDesc,
         "_INT_TEXT_": title + desc,
         "_TIME_": ""
+    });
+    lottie.fontWeightProvider({
+        "_TEXT_ACT_01_": 500,
+        "_AD_DESC_": 600,
+        "_INT_TEXT_": 300
     });
 }
 /** 互动事件处理 */
