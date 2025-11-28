@@ -97,6 +97,10 @@ C502005.event.lottieCardEvent = function (lottie) {
         "_APP_DESC_": appDesc,
         "_DATE_": currentDate()
     });
+    lottie.fontWeightProvider({
+        "_FRAME_TITLE_": 700,
+        "_APP_NAME_": 600
+    });
 }
 
  function currentDate() {
