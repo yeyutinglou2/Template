@@ -91,6 +91,11 @@ C205113.event.lottieWidgetEvent = function (lottie) {
         "_INT_TEXT_": title + desc,
         "_TIME_": ""
     });
+    lottie.fontWeightProvider({
+        "_TEXT_ACT_01_": 500,
+        "_AD_DESC_": 600,
+        "_INT_TEXT_": 300
+    });
 }
 /** 互动事件处理 */
 C205113.event.interactiveEvent = function (lottie) {
