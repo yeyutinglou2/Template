@@ -51,6 +51,9 @@ C205110.event.lottieWidgetEvent = function (lottie) {
         "_TEXT_ACT_01_": title,
         "_TEXT_ACT_02_": desc
     });
+    lottie.fontWeightProvider({
+        "_TEXT_ACT_01_": 500
+    });
 }
 /** 互动事件处理 */
 C205110.event.interactiveEvent = function (lottie) {
