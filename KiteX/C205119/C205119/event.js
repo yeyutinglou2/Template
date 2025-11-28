@@ -45,6 +45,10 @@ C205119.event.lottieWidgetEvent = function (lottie) {
         "_AD_TITLE_": creativeTitle,
         "_AD_DESC_": creativeDesc
     });
+    lottie.fontWeightProvider({
+        "_AD_TITLE_": 500,
+        "_CTA_TEXT_": 700
+    });
 }
 /** 互动事件处理 */
 C205119.event.interactiveEvent = function (lottie) {
