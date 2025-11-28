@@ -88,6 +88,9 @@ C502002.event.lottieBgEvent = function (lottie) {
     lottie.textProvider({
         "_FRAME_TITLE_":frameTitle
     });
+    lottie.fontWeightProvider({
+        "_FRAME_TITLE_": 700
+    });
 }
 
 
