@@ -96,7 +96,7 @@
   "logo_icon": {
     "width": 10,
     "height": 10,
-    "imageFit": "ImageFitMode.Contain"
+    "contentMode": "ImageFitMode.Contain"
   },
   "logo_text": {
     "height": 10,
