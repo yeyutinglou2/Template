@@ -1,13 +1,13 @@
 {
-  "data": {
-    "time_id": {
-        "value": {
-          "scale": 1.0,
-          "isCountDown":true
+    "data": {
+        "time_id": {
+            "value": {
+                "scale": 1.0,
+                "isCountDown": true
+            }
         }
-    }
-  },
-  "event":{
-  },
-  "animation":{}
+    },
+    "event": {
+    },
+    "animation": {}
 }
