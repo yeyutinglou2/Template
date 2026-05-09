@@ -2,9 +2,8 @@
     "dependencys": [
         {
             "cId": "502004",
-            "cMD5": "e9bc9f576848600389a88da6eecaba53",
-            "frameType": 1,
-            "cptType": 0
+            "cMD5": "08a25fc8932e98cdcf8d02896fda1caf",
+            "cptType": -1
         }
     ]
 }
