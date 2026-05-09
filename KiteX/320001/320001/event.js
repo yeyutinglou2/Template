@@ -5,7 +5,8 @@ main.event.ready = function () {
 
 main.event.getFrameId = function () {
     let material = kitex.data.ads[0].materials[0];
-    let componentLibrary = material.component_library;
+    let kiteX = material.kite_x;
+    let componentLibrary = .component_library;
     let components = componentLibrary.components;
     for (const component of components) {
         if (component.component_type == 1) {
