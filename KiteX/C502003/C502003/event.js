@@ -78,11 +78,10 @@ C502003.event.lottieBgEvent = function (lottie) {
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
     let frameTitle = "";
-    let componentLibrary = material.component_library;
-    let components = componentLibrary.components;
-    for (const component of components) {
-        if (component.component_type == 1) {
-            frameTitle = component.frame_title;
+    let dataArr = material.kite_x.data;
+    for (const data of dataArr) {
+        if (data.c_id == C502003.tid) {
+            frameTitle = data.title;
         }
     }
 
