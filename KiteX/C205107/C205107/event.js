@@ -48,7 +48,7 @@ C205107.event.lottieWidgetEvent = function (lottie) {
     let title = "";
     let desc = "";
     for (const data of dataArr) {
-        if (data.c_id == tid) {
+        if (data.c_id == C205107.tid) {
             title = data.title;
             desc = data.desc;
             break;
