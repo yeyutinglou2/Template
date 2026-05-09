@@ -45,26 +45,26 @@ C205107.event.lottieWidgetEvent = function (lottie) {
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
     let dataArr = material.kite_x.data;
-    let title = "";
-    let desc = "";
+    let actionTitle = "";
+    let interactTitle = "";
     for (const data of dataArr) {
         if (data.c_id == C205107.tid) {
-            title = data.title;
-            desc = data.desc;
+            actionTitle = data.action_title;
+            interactTitle = data.interact_title;
             break;
         }
     }
-    if (!isValidString(title)) {
-        title = "摇一摇";
+    if (!isValidString(actionTitle)) {
+        actionTitle = "摇一摇";
     }
 
-    if (!isValidString(desc)) {
-        desc = "跳转详情页或第三方应用";
+    if (!isValidString(interactTitle)) {
+        interactTitle = "跳转详情页或第三方应用";
     }
 
     lottie.textProvider({
-        _TEXT_ACT_01_: title,
-        _TEXT_ACT_02_: desc,
+        _TEXT_ACT_01_: actionTitle,
+        _TEXT_ACT_02_: interactTitle,
     });
     lottie.fontWeightProvider({
         _TEXT_ACT_01_: 500,
