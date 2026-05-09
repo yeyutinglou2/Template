@@ -6,11 +6,12 @@ main.event.ready = function () {
 main.event.getFrameId = function () {
     let material = kitex.data.ads[0].materials[0];
     let kiteX = material.kite_x;
-    let componentLibrary = .component_library;
+    let context = kiteX.context;
+    let componentLibrary = JSON.parse(context);
     let components = componentLibrary.components;
     for (const component of components) {
-        if (component.component_type == 1) {
-            return component.c_id;
+        if (component.cptType == 6) {
+            return component.cId;
         }
     }
     return "";
@@ -18,11 +19,13 @@ main.event.getFrameId = function () {
 
 main.event.getWidgetId = function () {
     let material = kitex.data.ads[0].materials[0];
-    let componentLibrary = material.component_library;
+    let kiteX = material.kite_x;
+    let context = kiteX.context;
+    let componentLibrary = JSON.parse(context);
     let components = componentLibrary.components;
     for (const component of components) {
-        if (component.component_type == 2) {
-            return component.c_id;
+        if (component.cptType == 1) {
+            return component.cId;
         }
     }
     return "";

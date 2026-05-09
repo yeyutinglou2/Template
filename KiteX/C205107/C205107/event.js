@@ -44,8 +44,16 @@ C205107.event.lottieWidgetEvent = function (lottie) {
     lottie.filepath(filepath);
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
-    let title = material.title;
-    let desc = material.desc;
+    let dataArr = material.kite_x.data;
+    let title = "";
+    let desc = "";
+    for (const data of dataArr) {
+        if (data.c_id == tid) {
+            title = data.title;
+            desc = data.desc;
+            break;
+        }
+    }
     if (!isValidString(title)) {
         title = "摇一摇";
     }

@@ -3,8 +3,7 @@
         {
             "cId": "502001",
             "cMD5": "922e6cae79b1667cd11c3943a5d0d731",
-            "frameType": 1,
-            "cptType": 0
+            "cptType": -1
         }
     ]
 }
