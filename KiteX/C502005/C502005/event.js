@@ -79,7 +79,7 @@ C502005.event.lottieCardEvent = function (lottie) {
     let frameTitle = "";
     let dataArr = material.kite_x.data;
     for (const data of dataArr) {
-        if (data.c_id == C502004.tid) {
+        if (data.c_id == C502005.tid) {
             frameTitle = data.title;
         }
     }
