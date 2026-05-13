@@ -53,31 +53,35 @@ C205115.event.lottieWidgetEvent = function (lottie) {
     lottie.filepath(filepath);
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
-    let title = material.title;
-    let desc = material.desc;
-    if (!isValidString(title)) {
-        title = "滑动手机";
-    }
-    if (!isValidString(desc)) {
-        desc = "跳转详情页或第三方应用";
-    }
-    let creativeTitle = material.creative_title;
-    if (!isValidString(creativeTitle)) {
-        creativeTitle = "限时获取 名额有限";
-    }
-    let creativeDesc = material.creative_desc;
-    if (!isValidString(creativeDesc)) {
-        creativeDesc = "超级福利火热领取中";
-    }
+    let dataArr = material.kite_x.data;
+    let actionTitle = "";
+    let interactTitle = "";
+    let title = "";
+    let desc = "";
     let tipLeft = "";
     let tipRight = "";
-    let componentLibrary = material.component_library;
-    let components = componentLibrary.components;
-    for (const component of components) {
-        if (component.component_type == 2) {
-            tipLeft = component.tip_left;
-            tipRight = component.tip_right;
+    for (const data of dataArr) {
+        if (data.c_id == C205115.tid) {
+            actionTitle = data.action_title;
+            interactTitle = data.interact_title;
+            title = data.title;
+            desc = data.desc;
+            tipLeft = data.tip_left;
+            tipRight = data.tip_right;
+            break;
         }
+    }
+    if (!isValidString(actionTitle)) {
+        actionTitle = "滑动手机";
+    }
+    if (!isValidString(interactTitle)) {
+        interactTitle = "跳转详情页或第三方应用";
+    }
+    if (!isValidString(title)) {
+        title = "限时获取 名额有限";
+    }
+    if (!isValidString(desc)) {
+        desc = "超级福利火热领取中";
     }
     if (!isValidString(tipLeft)) {
         tipLeft = "恭喜获得奖励";
@@ -87,13 +91,13 @@ C205115.event.lottieWidgetEvent = function (lottie) {
     }
 
     lottie.textProvider({
-        _TEXT_ACT_01_: title,
-        _TEXT_ACT_02_: desc,
+        _TEXT_ACT_01_: actionTitle,
+        _TEXT_ACT_02_: interactTitle,
         _TIP_TEXT_LEFT_: tipLeft,
         _TIP_TEXT_RIGHT_: tipRight,
-        _AD_TITLE_: creativeTitle,
-        _AD_DESC_: creativeDesc,
-        _INT_TEXT_: title + desc,
+        _AD_TITLE_: title,
+        _AD_DESC_: desc,
+        _INT_TEXT_: actionTitle + interactTitle,
         _TIME_: "",
     });
     lottie.fontWeightProvider({
