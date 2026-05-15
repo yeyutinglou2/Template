@@ -4,7 +4,7 @@ C205118.event.ready = function () {
     C205118.event.lottieWidgetEvent(C205118.lottie_widget);
 };
 
-C205118.event.viewableChange = function (viewable) {};
+C205118.event.viewableChange = function (viewable) { };
 
 C205118.event.makeNode = function (params) {
     if (params.type == "LottieView") {
@@ -36,17 +36,31 @@ C205118.event.lottieWidgetEvent = function (lottie) {
     lottie.filepath(filepath);
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
-    let creativeTitle = material.creative_title;
-    let buttonText = material.button_text;
+    let dataArr = material.kite_x.data;
+    let title = "";
+    let buttonText = "";
+    for (const data of dataArr) {
+        if (data.c_id == C205118.tid) {
+            title = data.title;
+            buttonText = data.button_text;
+            break;
+        }
+    }
+    if (!isValidString(buttonText)) {
+        buttonText = "点击查看详情";
+    }
     lottie.textProvider({
-        _AD_TITLE_: creativeTitle,
-        _CTA_TEXT_: buttonText.length ? buttonText : "点击查看详情",
+        _AD_TITLE_: title,
+        _CTA_TEXT_: buttonText,
     });
     let buttonColor = material.button_color;
-    lottie.colorProvider(
-        "黑色banner._CTA_BG_.矩形 1.填充 1.Color",
-        buttonColor
-    );
+    if (buttonColor && typeof buttonColor === 'object' && Object.keys(buttonColor).length > 0) {
+        lottie.colorProvider(
+            "黑色banner._CTA_BG_.矩形 1.填充 1.Color",
+            buttonColor
+        );
+    }
+
 };
 
 /* 互动事件处理 */

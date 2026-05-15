@@ -44,11 +44,19 @@ C205119.event.lottieWidgetEvent = function (lottie) {
     lottie.filepath(filepath);
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
-    let creativeTitle = material.creative_title;
-    let creativeDesc = material.creative_desc;
+    let dataArr = material.kite_x.data;
+    let title = "";
+    let desc = "";
+    for (const data of dataArr) {
+        if (data.c_id == C205119.tid) {
+            title = data.title;
+            desc = data.desc;
+            break;
+        }
+    }
     lottie.textProvider({
-        _AD_TITLE_: creativeTitle,
-        _AD_DESC_: creativeDesc,
+        _AD_TITLE_: title,
+        _AD_DESC_: desc,
     });
     lottie.fontWeightProvider({
         _AD_TITLE_: 500,

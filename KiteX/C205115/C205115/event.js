@@ -54,16 +54,14 @@ C205115.event.lottieWidgetEvent = function (lottie) {
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
     let dataArr = material.kite_x.data;
-    let actionTitle = "";
-    let interactTitle = "";
+    let actionTitle = material.desc;
+    let interactTitle = material.title;
     let title = "";
     let desc = "";
     let tipLeft = "";
     let tipRight = "";
     for (const data of dataArr) {
         if (data.c_id == C205115.tid) {
-            actionTitle = data.action_title;
-            interactTitle = data.interact_title;
             title = data.title;
             desc = data.desc;
             tipLeft = data.tip_left;
@@ -71,11 +69,11 @@ C205115.event.lottieWidgetEvent = function (lottie) {
             break;
         }
     }
-    if (!isValidString(actionTitle)) {
-        actionTitle = "滑动手机";
-    }
     if (!isValidString(interactTitle)) {
-        interactTitle = "跳转详情页或第三方应用";
+        interactTitle = "滑动手机";
+    }
+    if (!isValidString(actionTitle)) {
+        actionTitle = "跳转详情页或第三方应用";
     }
     if (!isValidString(title)) {
         title = "限时获取 名额有限";
@@ -91,13 +89,13 @@ C205115.event.lottieWidgetEvent = function (lottie) {
     }
 
     lottie.textProvider({
-        _TEXT_ACT_01_: actionTitle,
-        _TEXT_ACT_02_: interactTitle,
+        _TEXT_ACT_01_: interactTitle,
+        _TEXT_ACT_02_: actionTitle,
         _TIP_TEXT_LEFT_: tipLeft,
         _TIP_TEXT_RIGHT_: tipRight,
         _AD_TITLE_: title,
         _AD_DESC_: desc,
-        _INT_TEXT_: actionTitle + interactTitle,
+        _INT_TEXT_: interactTitle + actionTitle,
         _TIME_: "",
     });
     lottie.fontWeightProvider({
