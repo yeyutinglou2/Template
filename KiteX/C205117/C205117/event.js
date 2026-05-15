@@ -38,12 +38,11 @@ C205117.event.lottieWidgetEvent = function (lottie) {
     let ad = kitex.data.ads[0];
     let material = ad.materials[0];
     let dataArr = material.kite_x.data;
-    let title = "";
+    let title = material.title;
     let buttonText = "";
     let buttonColor = material.button_color;
     for (const data of dataArr) {
         if (data.c_id == C205117.tid) {
-            title = data.title;
             buttonText = data.button_text;
             break;
         }
